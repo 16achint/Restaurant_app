@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">AssignmentByAchint</string>
+    <string name="description">Join over 100 million people who use Assignment to talk with communities and friend</string>
+    <string name="app__name">Assignment</string>
+    <string name="welcome">Welcome to Assignment</string>
+    <string name="btn_resgister">Register</string>
+    <string name="btb_log_in">Log In</string>
+    <string name="home">Home</string>
+    <string name="my_profile">My Profile</string>
+    <string name="favourite_restaurants">Favourite Restaurants</string>
+    <string name="faqs">FAQs</string>
+    <string name="setting">Setting</string>
+    <string name="open_Drawer">open Drawer</string>
+    <string name="close_Drawer">close Drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name_of_the_restaurant">Name of the restaurant</string>
+    <string name="rs_299_person">Rs. 299/Person</string>
+    <string name="todo">TODO</string>
+    <string name="_4_5">4.5</string>
+    <string name="action_sort">action sort</string>
+    <string name="add_to_favourites">Add to Favourites</string>
+    <string name="main_dishes">Main Dishes</string>
+    <string name="q_1_how_will_the_training_be_delivered">Q.1 How will the training be delivered?</string>
+    <string name="answer1">A.1 You will be taught using pre-recorded videos and text tutorials. the training has quizzes,assignment and test to help you learn better. At the end of the training. you will attempt a project to get hands-on practice of what you learn during your training.</string>
+    <string name="q2">Q.2 What will be the duration of training?</string>
+    <string name="answer2">A.2 The training duration is 6 weeks.</string>
+    <string name="q3">Q.3 How much time should i spend everyday?</string>
+    <string name="answer3">A.3 we recommend spending 10–12 hours per week. However the actual learning hours can be decided by you as per you convenience.</string>
+    <string name="q4">Q.4 Where can i start my training?</string>
+    <string name="answer4">A.4 You can choose your preferred batch date while signing up for the training program.</string>
+    <string name="Preference_file_name">Restaurant Preference</string>
+    <string name="forgot_activity_in_development">Forgot Activity in Development</string>
+    <string name="mobile_number_10_digits">Mobile Number (10 digits)</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="next">Next</string>
+    <string name="email_address">Email Address</string>
+    <string name="enter_your_mobile_and_email_below">Enter your mobile and email below:</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="submit">Submit</string>
+    <string name="new_password_min_4_character">New Password(Min 4 character)</string>
+    <string name="otp_4_character">OTP(4 Character)</string>
+    <string name="enter_the_received_otp_below">Enter the received OTP below</string>
+    <string name="password_recovery">Password Recovery</string>
+
+</resources>
