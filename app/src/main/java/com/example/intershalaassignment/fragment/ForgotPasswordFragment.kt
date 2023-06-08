@@ -1,5 +1,6 @@
 package com.example.intershalaassignment.fragment
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -31,6 +32,8 @@ class ForgotPasswordFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_forgot_password, container, false)
+
+        sessionManager = SessionManager(activity as Context)
         sharedPreferences = requireActivity().getSharedPreferences(sessionManager.PREF_NAME,sessionManager.PRIVATE_MODE)
 
         mobileNumber = view.findViewById(R.id.ed_mobile_number)
@@ -44,19 +47,22 @@ class ForgotPasswordFragment : Fragment() {
             if(number.isEmpty() || Email.isEmpty()){
                 Toast.makeText(context,"Credential not be empty",Toast.LENGTH_SHORT).show()
             }else{
-                val url = "13.235.250.119/v2/forgot_password/fetch_result"
+                val url = "http://13.235.250.119/v2/forgot_password/fetch_result"
                 val queue = Volley.newRequestQueue(context)
                 val jsonParam = JSONObject()
-                jsonParam.put("mobile_Number",number)
+                jsonParam.put("mobile_number",number)
                 jsonParam.put("email",Email)
-
+                val editor = sharedPreferences.edit()
+                editor.putString("mobile_number",number)
                 val jsonObjectRequest = object : JsonObjectRequest(Method.POST,url,jsonParam,Response.Listener { response ->
                     try {
                         val data = response.getJSONObject("data")
                         val success = data.getBoolean("success")
                         if(success){
+                            next.visibility = View.GONE
                             val passwordRecovery = PasswordRecoveryFragment()
-                            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.forgetPasswordFragment,passwordRecovery)
+                            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.forgetPasswordFragment,passwordRecovery).commit()
+
                         }
                     }catch (e:Exception){
                         Toast.makeText(context,"${e.message}",Toast.LENGTH_SHORT).show()

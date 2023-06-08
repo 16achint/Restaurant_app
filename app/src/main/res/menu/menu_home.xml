@@ -2,14 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<!--    <item-->
-<!--        android:id="@+id/action_sort"-->
-<!--        android:icon="@drawable/ic_action_sort"-->
-<!--        android:title="@string/action_sort"-->
-<!--        android:orderInCategory="100"-->
-<!--        app:showAsAction="always"-->
-<!--        android:iconTint="#E31212"-->
-<!--        android:titleTextColor="#E31212"-->
-<!--        />-->
+    <item
+        android:id="@+id/action_add_card"
+        android:icon="@drawable/baseline_ic_add_item"
+        android:title="@string/action_sort"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:iconTint="#171111"
+        />
+
+    <item
+        android:id="@+id/action_sort"
+        android:icon="@drawable/ic_action_sort"
+        android:title="@string/action_sort"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"
+        android:iconTint="#171111"
+        />
 
 </menu>

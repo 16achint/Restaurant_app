@@ -1,9 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.CartActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/txtLinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtOrdering"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ordering From :"
+            android:textColor="#E91E63" />
+
+        <TextView
+            android:id="@+id/resName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="Restaurant name"
+            android:textColor="#F44336"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@id/txtLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@color/backgroundColor" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerDishesCart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnProceedToPay"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/background_button"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:textSize="20sp"
+        android:text="Place Order"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+</RelativeLayout>

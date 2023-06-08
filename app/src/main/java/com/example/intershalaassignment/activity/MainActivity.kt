@@ -1,7 +1,9 @@
 package com.example.intershalaassignment.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.FrameLayout
 import android.widget.Toast
@@ -14,12 +16,11 @@ import com.example.intershalaassignment.fragment.FAQsFragment
 import com.example.intershalaassignment.fragment.FavouritesRestaurantFragment
 import com.example.intershalaassignment.fragment.DashboardFragment
 import com.example.intershalaassignment.fragment.MyProfileFragment
-import com.example.intershalaassignment.fragment.WelcomeFragment
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var drawerLayout: DrawerLayout
+    private lateinit var drawerLayout: DrawerLayout
     lateinit var coordinatorLayout: CoordinatorLayout
     lateinit var toolbar: androidx.appcompat.widget.Toolbar
     lateinit var frameLayout: FrameLayout
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         title = "Find Restaurants"
         drawerLayout = findViewById(R.id.drawer_layout)
+//        drawerLayout2 = findViewById(R.id.drawer_layout2)
         coordinatorLayout = findViewById(R.id.coordinatorLayout)
         toolbar = findViewById(R.id.toolbar)
         frameLayout = findViewById(R.id.frame)
@@ -80,7 +82,10 @@ class MainActivity : AppCompatActivity() {
             return@setNavigationItemSelectedListener true
         }
     }
-
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_home,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
         private fun openHome() {
             val fragment = DashboardFragment()
             val transaction = supportFragmentManager.beginTransaction()
@@ -92,6 +97,10 @@ class MainActivity : AppCompatActivity() {
         override fun onBackPressed() {
             if (drawerLayout.isDrawerOpen(GravityCompat.END))
                 drawerLayout.closeDrawer(GravityCompat.END)
+//            else if(drawerLayout2.visibility == View.GONE){
+//                startActivity(Intent(this,MainActivity::class.java))
+//                finish()
+//            }
             else {
             val frag = supportFragmentManager.findFragmentById(R.id.frame)
             when (frag) {
@@ -103,9 +112,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
-
-        if (id == android.R.id.home) {
-            drawerLayout.openDrawer(GravityCompat.END)
+        when(id){
+            android.R.id.home -> drawerLayout.openDrawer(GravityCompat.END)
+            R.id.action_add_card -> {
+                val intent = Intent(this,CartActivity::class.java)
+                startActivity(intent)
+                supportActionBar?.title = "Add to Cart"
+            }
+            R.id.action_sort -> {
+                Toast.makeText(this,"Click item",Toast.LENGTH_SHORT).show()
+            }
         }
         return super.onOptionsItemSelected(item)
     }

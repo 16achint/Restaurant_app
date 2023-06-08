@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -12,6 +13,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.intershalaassignment.R
+import com.example.intershalaassignment.fragment.ForgotPasswordFragment
 import com.example.intershalaassignment.util.SessionManager
 import org.json.JSONObject
 import java.lang.Exception
@@ -46,8 +48,11 @@ class LoginActivity : AppCompatActivity() {
         ForgotPassword = findViewById(R.id.txt_Forgot_password)
 
         ForgotPassword.setOnClickListener {
-            val intent = Intent(this, ForgotPasswordActivity::class.java)
-            startActivity(intent)
+            login.visibility = View.GONE
+            Toast.makeText(this@LoginActivity, "Clicked",Toast.LENGTH_SHORT).show()
+            val forgotPassword = ForgotPasswordFragment()
+            supportFragmentManager.beginTransaction().replace(R.id.loginActivity, forgotPassword)
+                .commit()
         }
         login.setOnClickListener {
             val Useremail = mobileNumber.text.toString()

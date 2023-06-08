@@ -83,6 +83,7 @@ class DashboardRecyclerAdapter(val context: Context, val itemList: ArrayList<Res
             val intent = Intent(context, RestaurantDetailsActivity::class.java)
             intent.putExtra("id", restaurants.id)
             intent.putExtra("image", restaurants.Res_image)
+            intent.putExtra("name", restaurants.name)
             context.startActivity(intent)
         }
     }
@@ -100,18 +101,21 @@ class DashboardRecyclerAdapter(val context: Context, val itemList: ArrayList<Res
         override fun doInBackground(vararg params: Void?): Boolean {
             when (mode) {
                 1 -> {
+                    // check db if Restaurant is fav or not
                     val restaurant: RestaurantEntity? = db.RestaurantDao().getRestaurantById(restaurantEntity.id.toString())
                     db.close()
                     return restaurant != null
                 }
 
                 2 -> {
+                    // save restaurant into db as fav
                     db.RestaurantDao().insertRes(restaurantEntity)
                     db.close()
                     return true
                 }
 
                 3 -> {
+                    // Remove the fav restaurant
                     db.RestaurantDao().deleteRes(restaurantEntity)
                     db.close()
                     return true
