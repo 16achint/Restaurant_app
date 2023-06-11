@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.intershalaassignment.R
 import com.example.intershalaassignment.activity.LoginActivity
@@ -19,6 +20,11 @@ class MyProfileFragment : Fragment() {
     lateinit var sessionManager: SessionManager
     lateinit var sharedPreferences: SharedPreferences
     private lateinit var activity: AppCompatActivity
+    lateinit var username : TextView
+    lateinit var email : TextView
+    lateinit var phoneNumber : TextView
+    lateinit var addess : TextView
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         activity = context as AppCompatActivity
@@ -32,6 +38,16 @@ class MyProfileFragment : Fragment() {
         sessionManager = SessionManager(activity as Context)
         sharedPreferences = this.requireActivity().getSharedPreferences(sessionManager.PREF_NAME, sessionManager.PRIVATE_MODE)
         val view = inflater.inflate(R.layout.fragment_my_profile, container, false)
+
+        username = view.findViewById(R.id.txt_name)
+        email = view.findViewById(R.id.txt_email)
+        phoneNumber = view.findViewById(R.id.txt_mobileNumber)
+        addess = view.findViewById(R.id.txt_address)
+
+        username.text = sharedPreferences.getString("name","")
+        email.text = sharedPreferences.getString("email","")
+        phoneNumber.text = sharedPreferences.getString("mobile_number","")
+        addess.text = sharedPreferences.getString("address","")
 
         logOut = view.findViewById(R.id.btn_logOut)
 

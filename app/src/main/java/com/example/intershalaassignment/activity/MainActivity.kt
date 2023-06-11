@@ -16,6 +16,7 @@ import com.example.intershalaassignment.fragment.FAQsFragment
 import com.example.intershalaassignment.fragment.FavouritesRestaurantFragment
 import com.example.intershalaassignment.fragment.DashboardFragment
 import com.example.intershalaassignment.fragment.MyProfileFragment
+import com.example.intershalaassignment.fragment.OrderHistoryFragment
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -68,7 +69,12 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction().replace(R.id.frame,FavouritesRestaurantFragment()).commit()
                     supportActionBar?.title = "Favourites Restaurants"
                 }
-                R.id.faqs -> {
+                R.id.order_history -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.frame, OrderHistoryFragment()).commit()
+                    supportActionBar?.title = "Order History"
+                }
+                    R.id.faqs -> {
                     supportFragmentManager.beginTransaction().replace(R.id.frame,FAQsFragment()).commit()
                     supportActionBar?.title = "FAQs"
                 }

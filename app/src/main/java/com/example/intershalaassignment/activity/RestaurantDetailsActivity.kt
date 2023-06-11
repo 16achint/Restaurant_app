@@ -105,11 +105,11 @@ class RestaurantDetailsActivity : AppCompatActivity() {
                                 )
 
                                 dishesList.add(dishes)
-                                layoutManager = LinearLayoutManager(this)
-                                recyclerAdapter = RestaurantDetailsAdapter(this,dishesList,cartBtn,intent.getStringExtra("name").toString())
-                                restaurantRecyclerView.adapter = recyclerAdapter
-                                restaurantRecyclerView.layoutManager = layoutManager
                             }
+                            layoutManager = LinearLayoutManager(this)
+                            recyclerAdapter = RestaurantDetailsAdapter(this,dishesList,cartBtn,intent.getStringExtra("name").toString())
+                            restaurantRecyclerView.adapter = recyclerAdapter
+                            restaurantRecyclerView.layoutManager = layoutManager
                         }else{
                             Toast.makeText(this, "Some Error has Occurred", Toast.LENGTH_SHORT).show()
                         }

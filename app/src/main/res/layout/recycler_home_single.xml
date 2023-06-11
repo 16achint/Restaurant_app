@@ -53,10 +53,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ResName"
-                android:layout_alignParentBottom="true"
                 android:layout_marginTop="20dp"
                 android:padding="8dp"
                 android:text="@string/rs_299_person"
+                android:drawableStart="@drawable/ic_money"
                 android:textColor="#357a38"
                 android:textSize="15sp"
                 android:textStyle="bold" />

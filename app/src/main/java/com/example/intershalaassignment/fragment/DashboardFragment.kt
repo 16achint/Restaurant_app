@@ -35,6 +35,7 @@ import com.example.intershalaassignment.database.RestaurantEntity
 import com.example.intershalaassignment.models.Restaurants
 import com.example.intershalaassignment.util.ConnectionManager
 import org.json.JSONException
+import java.util.Collections
 
 class DashboardFragment : Fragment() {
     lateinit var HomeRecyclerView: RecyclerView
@@ -50,15 +51,17 @@ class DashboardFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_deshboard, container, false)
+
+        layoutManager = LinearLayoutManager(activity)
         HomeRecyclerView = view.findViewById(R.id.DashboardRecyclerView)
         progressLayout = view.findViewById(R.id.progressLayout)
         progressBar = view.findViewById(R.id.progressBar)
         progressLayout.visibility = View.VISIBLE
-        CallApi()
+        CallApi(requireContext())
         return view
     }
 
-    private fun CallApi() {
+    private fun CallApi(context: Context) {
         val queue = Volley.newRequestQueue(activity as Context)
         val url = "http://13.235.250.119/v2/restaurants/fetch_result/"
         if (ConnectionManager().checkManager(activity as Context)) {
@@ -86,11 +89,13 @@ class DashboardFragment : Fragment() {
                                         resObject.getString("image_url")
                                     )
                                     restaurantList.add(ResObject)
-                                    layoutManager = LinearLayoutManager(activity)
-                                    recyclerAdapter = DashboardRecyclerAdapter(activity as Context, restaurantList)
+                                }
+                                recyclerAdapter = DashboardRecyclerAdapter(activity as Context, restaurantList)
                                     HomeRecyclerView.adapter = recyclerAdapter
                                     HomeRecyclerView.layoutManager = layoutManager
-                                }
+
+//                                HomeRecyclerView.adapter = recyclerAdapter
+//                                HomeRecyclerView.layoutManager = layoutManager
                             } else {
                                 Toast.makeText(activity as Context, "Some Error has Occurred", Toast.LENGTH_SHORT).show()
                             }
@@ -115,7 +120,8 @@ class DashboardFragment : Fragment() {
                         return headers
                     }
                 }
-            queue.add(jsonObjectRequest)
+
+                queue.add(jsonObjectRequest)
         } else {
             // internet not available
             val dialog = AlertDialog.Builder(activity as Context)

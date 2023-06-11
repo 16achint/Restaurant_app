@@ -21,7 +21,7 @@ import com.example.intershalaassignment.models.Restaurants
 import com.squareup.picasso.Picasso
 import java.util.ArrayList
 
-class DashboardRecyclerAdapter(val context: Context, val itemList: ArrayList<Restaurants>) :
+class DashboardRecyclerAdapter(val context: Context, private val itemList: ArrayList<Restaurants>) :
     RecyclerView.Adapter<DashboardRecyclerAdapter.HomeViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
@@ -37,7 +37,7 @@ class DashboardRecyclerAdapter(val context: Context, val itemList: ArrayList<Res
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val restaurants = itemList[position]
         holder.txtName.text = restaurants.name
-        holder.txtPrice.text = restaurants.cost_for_one.toString()
+        holder.txtPrice.text = restaurants.cost_for_one.toString()+ "/person"
         holder.txtRating.text = restaurants.rating
         Picasso.get().load(restaurants.Res_image).error(R.drawable.resimage).into(holder.imgResImage)
         Log.d("img",restaurants.Res_image)

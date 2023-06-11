@@ -43,5 +43,10 @@
     <string name="otp_4_character">OTP(4 Character)</string>
     <string name="enter_the_received_otp_below">Enter the received OTP below</string>
     <string name="password_recovery">Password Recovery</string>
+    <string name="title_activity_success_screen">SuccessScreenActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="order_String">Your previous orders are listed below:</string>
 
 </resources>

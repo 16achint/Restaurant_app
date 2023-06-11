@@ -37,15 +37,12 @@ class CartActivity : AppCompatActivity() {
         hotelName.text = intent.getStringExtra("hotel_name").toString()
         proceedToPay  = findViewById(R.id.btnProceedToPay)
 
-        recyclerAdapter = CartRecyclerAdapter(this,dbDishList,hotelId,proceedToPay)
+        recyclerAdapter = CartRecyclerAdapter(this,this.supportFragmentManager,dbDishList,hotelId,proceedToPay)
         recyclerCart.adapter = recyclerAdapter
         recyclerCart.layoutManager = layoutManager
-
-
     }
 
     class RetrieveCartItems(val context: Context) : AsyncTask<Void,Void,List<DishesEntity>>(){
-
         override fun doInBackground(vararg params: Void?): List<DishesEntity> {
             val db = Room.databaseBuilder(context,DishesDatabase::class.java,"Dish-db").build()
 

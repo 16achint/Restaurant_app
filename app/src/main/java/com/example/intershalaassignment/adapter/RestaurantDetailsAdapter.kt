@@ -18,7 +18,8 @@ import com.example.intershalaassignment.database.DishesDatabase
 import com.example.intershalaassignment.database.DishesEntity
 import com.example.intershalaassignment.models.Dishes
 
-class RestaurantDetailsAdapter(val context: Context, private val itemList: ArrayList<Dishes>,val cartBtn : Button,val hotelName:String) :
+class RestaurantDetailsAdapter(val context: Context, private val itemList: ArrayList<Dishes>,
+                               private val cartBtn : Button, val hotelName:String) :
     RecyclerView.Adapter<RestaurantDetailsAdapter.RestaurantDetailsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantDetailsViewHolder {
         val view =

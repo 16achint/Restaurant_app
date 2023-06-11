@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.MyProfileFragment">
+    tools:context=".fragment.MyProfileFragment"
+    android:background="@color/backgroundColor">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -18,9 +19,8 @@
             android:id="@+id/imgResImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/backgroundColor"
             android:scaleType="centerCrop"
-            android:src="@drawable/github_logo" />
+            android:src="@drawable/ic_profile" />
     </androidx.cardview.widget.CardView>
 
     <TextView
@@ -52,12 +52,26 @@
         android:textColor="#B6B9C0"
         android:textColorHint="#B6B9C0"
         android:textSize="16sp" />
+    <TextView
+        android:id="@+id/txt_mobileNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_email"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:background="#1F1F22"
+        android:hint="Mobile Number"
+        android:padding="16dp"
+        android:textColor="#B6B9C0"
+        android:textColorHint="#B6B9C0"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/txt_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txt_email"
+        android:layout_below="@id/txt_mobileNumber"
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="20dp"

@@ -99,6 +99,14 @@ class LoginActivity : AppCompatActivity() {
                 val success = data.getBoolean("success")
                 if(success){
                     val response = data.getJSONObject("data")
+                    sharedPreferences.edit().clear().apply()
+                    sharedPreferences.edit().putString("user_id", response.getString("user_id")).apply()
+                    sharedPreferences.edit().putString("name", response.getString("name")).apply()
+                    sharedPreferences.edit().putString("email", response.getString("email")).apply()
+                    sharedPreferences.edit().putString("mobile_number", response.getString("mobile_number")).apply()
+                    sharedPreferences.edit().putString("address", response.getString("address")).apply()
+                    sharedPreferences.edit().putBoolean("isLoggedIn", true).apply()
+
                     Toast.makeText(this@LoginActivity, "READY TO GO", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@LoginActivity,MainActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)

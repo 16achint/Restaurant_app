@@ -18,6 +18,11 @@
         android:id="@+id/favourite_restaurants"
         android:title="@string/favourite_restaurants"
         android:icon="@drawable/ic_favourites_foreground"/>
+
+        <item
+            android:id="@+id/order_history"
+            android:title="Order History"
+            android:icon="@drawable/ic_history"/>
     <item
         android:id="@+id/faqs"
         android:title="@string/faqs"
